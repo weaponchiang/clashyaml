@@ -31,7 +31,6 @@ DOMAIN-SUFFIX,dnsleaktest.org
 # 网络测速相关
 DOMAIN-SUFFIX,fast.com
 DOMAIN-SUFFIX,fiber.google.com
-DOMAIN-SUFFIX,gstatic.com
 DOMAIN-SUFFIX,measurementlab.net
 DOMAIN-SUFFIX,meter.net
 DOMAIN-SUFFIX,nperf.com
@@ -44,6 +43,8 @@ DOMAIN-SUFFIX,speedtest.net
 DOMAIN-SUFFIX,speedtestcustom.com
 DOMAIN-SUFFIX,testmy.net
 DOMAIN-SUFFIX,ovo.speedtestcustom.com
+DOMAIN-SUFFIX,googlefiber.com
+DOMAIN-SUFFIX,googlefiber.net
 
 # 隐私和匿名性测试
 DOMAIN-SUFFIX,browserscan.net
