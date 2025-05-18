@@ -14,8 +14,8 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 直连 
-    
+    proxy: 直连
+
   亏本:
     url: "example.com"
     type: http
@@ -24,17 +24,7 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 直连    
-
-  哈基米:
-    url: "example.com"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连    
+    proxy: 直连
 
   宝可梦:
     url: "example.com"
@@ -44,8 +34,18 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 直连      
-  
+    proxy: 直连
+
+  辣子鸡:
+    url: "example.com"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+
   自建:
     url: "example.com"
     type: http
@@ -54,8 +54,8 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 直连   
-   
+    proxy: 直连
+
   本地:
     url: "example.com"
     type: http
@@ -64,9 +64,19 @@ proxy-providers:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 直连   
- 
-    
+    proxy: 直连
+
+  公益:
+    url: "example.com"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+
+
 
 proxies:
   - {name: 直连, type: direct}
@@ -132,33 +142,29 @@ profile:
 # ========================
 default: &default
   type: select
-  proxies: [直连,所有-手动,所有-自动,香港-自动,台湾-自动,日本-自动,新加坡-自动,韩国-自动,美国-自动,英国-自动,其他-自动,拒绝]
+  proxies: [直连,自动选择,手动切换,香港-自动,台湾-自动,日本-自动,新加坡-自动,韩国-自动,美国-自动,英国-自动,其他-自动,拒绝]
 
 proxy-groups:
-  - {name: ChatGPT, <<: *default}
-  - {name: Claude, <<: *default}
-  - {name: Meta AI, <<: *default}
+  - {name: 自动选择, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(直连|拒绝)).)*$"}
+  - {name: 手动切换, type: select, include-all: true, filter: "^((?!(直连|拒绝)).)*$"}
+  - {name: AI, <<: *default}
   - {name: GitHub, <<: *default}
   - {name: Telegram, <<: *default}
   - {name: Twitter(X), <<: *default}
-  - {name: WhatsApp, <<: *default}
   - {name: Steam, <<: *default}
   - {name: Game, <<: *default}
   - {name: YouTube, <<: *default}
   - {name: TikTok, <<: *default}
   - {name: Netflix, <<: *default}
   - {name: Spotify, <<: *default}
+  - {name: Emby, <<: *default}
   - {name: Crypto, <<: *default}
-  - {name: Amazon, <<: *default}
   - {name: Apple, <<: *default}
   - {name: Microsoft, <<: *default}
   - {name: Google, <<: *default}
-  - {name: Test, <<: *default}
   - {name: 国外, <<: *default}
   - {name: 国内, <<: *default}
   - {name: 漏网之鱼, <<: *default}
-  - {name: 所有-手动, type: select, include-all: true, filter: "^((?!(直连|拒绝)).)*$"}
-  - {name: 所有-自动, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(直连|拒绝)).)*$"}
   - {name: 香港-自动, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"}
   - {name: 台湾-自动, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"}
   - {name: 日本-自动, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"}
@@ -167,23 +173,20 @@ proxy-groups:
   - {name: 美国-自动, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|硅谷|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"}
   - {name: 英国-自动, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(英国|UK|London|🇬🇧)).*$"}
   - {name: 其他-自动, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|硅谷|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|英国|UK)).)*$"}
+  - {name: 测试, <<: *default}
 
 # ========================
 # 规则引擎（rules）
 # ========================
 rules:
-  - RULE-SET,TEST / Domain,Test
-  - RULE-SET,ChatGPT / Domain,ChatGPT
-  - RULE-SET,Claude / Domain,Claude
-  - RULE-SET,Meta AI / Domain,Meta AI
+  - RULE-SET,测试 / Domain,测试
+  - RULE-SET,AI / Domain,AI
   - RULE-SET,Github / Domain,GitHub
   - RULE-SET,Telegram / Domain,Telegram
   - RULE-SET,Telegram / IP,Telegram,no-resolve
   - RULE-SET,Twitter / Domain,Twitter(X)
-  - RULE-SET,WhatsApp / Domain,WhatsApp
-  - RULE-SET,Amazon / Domain,Amazon
   - RULE-SET,Apple / Domain,Apple
-  - RULE-SET,Apple-CN / Domain,Apple  
+  - RULE-SET,Apple-CN / Domain,Apple
   - RULE-SET,Microsoft / Domain,Microsoft
   - RULE-SET,OKX / Domain,Crypto
   - RULE-SET,Bybit / Domain,Crypto
@@ -193,6 +196,7 @@ rules:
   - RULE-SET,Netflix / Domain,Netflix
   - RULE-SET,Netflix / IP,Netflix,no-resolve
   - RULE-SET,Spotify / Domain,Spotify
+  - RULE-SET,Emby / Domain,Emby
   - RULE-SET,Steam / Domain,Steam
   - RULE-SET,Epic / Domain,Game
   - RULE-SET,EA / Domain,Game
@@ -203,7 +207,7 @@ rules:
   - RULE-SET,Google / Domain,Google
   - RULE-SET,Google / IP,Google,no-resolve
   - RULE-SET,Proxy / Domain,国外
-  - RULE-SET,Globe / Domain,国外  
+  - RULE-SET,Globe / Domain,国外
   - RULE-SET,Direct / Domain,国内
   - RULE-SET,China / Domain,国内
   - RULE-SET,China / IP,国内,no-resolve
@@ -219,18 +223,13 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 
 rule-providers:
-  ChatGPT / Domain: {<<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"}
-  Claude / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.list"}
-  Meta AI / Domain: {<<: *class, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/MetaAi.list"}
-  AI / Domain: {<<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs"}
+  AI / Domain: {<<: *class, url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list"}
   Github / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
   Telegram / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
   Telegram / IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
   Twitter / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/x.mrs"}
-  WhatsApp / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Whatsapp/Whatsapp.list"}
-  Amazon / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amazon.mrs"}
   Apple-CN / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
-  Apple / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}  
+  Apple / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
   Microsoft / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
   OKX / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/okx.mrs"}
   Bybit / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bybit.mrs"}
@@ -240,6 +239,7 @@ rule-providers:
   Netflix / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
   Netflix / IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
   Spotify / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs"}
+  Emby / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.list"}
   Steam / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.mrs"}
   Epic / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.list"}
   EA / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.list"}
@@ -249,13 +249,11 @@ rule-providers:
   Nintend / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo.list"}
   Google / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   Google / IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
-  TEST / Domain: {<<: *class, url: "https://raw.githubusercontent.com/weaponchiang/clashyaml/refs/heads/main/check-test.list"}
+  测试 / Domain: {<<: *class, url: "https://raw.githubusercontent.com/weaponchiang/clashyaml/refs/heads/main/check-test.list"}
   Proxy / Domain: {<<: *class, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Proxy.list"}
-  Globe / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list"} 
+  Globe / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list"}
   Direct / Domain: {<<: *class, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Direct.list"}
   China / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China / IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   Private / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
 #  GateFireWall / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
-
-
