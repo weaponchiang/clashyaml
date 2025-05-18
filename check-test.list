@@ -42,8 +42,6 @@ DOMAIN-SUFFIX,ovo.speedtestcustom.com
  
 # Google Fiber Speedtest相关
 DOMAIN-SUFFIX,fiber.google.com
-DOMAIN-SUFFIX,gstatic.com
-DOMAIN-SUFFIX,measurementlab.net
 DOMAIN-SUFFIX,googlefiber.com
 DOMAIN-SUFFIX,googlefiber.net
 
