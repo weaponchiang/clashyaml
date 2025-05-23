@@ -254,7 +254,7 @@ rule-providers:
   测试 / Domain: {<<: *class, url: "https://raw.githubusercontent.com/weaponchiang/clashyaml/refs/heads/main/check-test.list"}
   Proxy / Domain: {<<: *class, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Proxy.list"}
   Globe / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list"}
-  Direct / Domain: {<<: *class, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Direct.list"}
+  Direct / Domain: {<<: *https://raw.githubusercontent.com/weaponchiang/clashyaml/refs/heads/main/direct.list"}
   China / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China / IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   Private / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
