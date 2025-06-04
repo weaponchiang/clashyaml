@@ -1,8 +1,7 @@
 # 内容：emby 
 DOMAIN-KEYWORD,emby
-DOMAIN,hka-emby3.aliz.work
-DOMAIN,hkb-emby.aliz.work
-DOMAIN,tanhuatv.site
+DOMAIN-SUFFIX,aliz.work
+DOMAIN-SUFFIX,tanhuatv.site
 DOMAIN-SUFFIX,28.al
 DOMAIN-SUFFIX,yunti.online
 DOMAIN-SUFFIX,nezhasu.com
