@@ -78,8 +78,6 @@ proxy-providers:
 
 
 
-
-
 proxies:
   - {name: 直连, type: direct}
   - {name: 拒绝, type: reject}
@@ -176,6 +174,7 @@ proxy-groups:
   - {name: 英国-自动, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "(?=.*(英国|UK|London|🇬🇧)).*$"}
   - {name: 其他-自动, type: url-test, include-all: true, tolerance: 50, interval: 300, filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|硅谷|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|英国|UK)).)*$"}
   - {name: 测试, <<: *default}
+  - {name: 直连测速, type: url-test, proxies: [直连], url: https://www.gstatic.com/generate_204, interval: 300}
 
 # ========================
 # 规则引擎（rules）
@@ -254,7 +253,7 @@ rule-providers:
   测试 / Domain: {<<: *class, url: "https://raw.githubusercontent.com/weaponchiang/clashyaml/refs/heads/main/check-test.list"}
   Proxy / Domain: {<<: *class, url: "https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Proxy.list"}
   Globe / Domain: {<<: *class, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list"}
-  Direct / Domain: {<<: *https://raw.githubusercontent.com/weaponchiang/clashyaml/refs/heads/main/direct.list"}
+  Direct / Domain: {<<: *class, url: "https://raw.githubusercontent.com/weaponchiang/clashyaml/refs/heads/main/direct.list"}
   China / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China / IP: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   Private / Domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
