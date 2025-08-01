@@ -1,6 +1,6 @@
 # IP-CIDR,142.251.215.0/24,no-resolve
 # 测速ip段
-IP-CIDR,151.101.64.0/22
+# IP-CIDR,151.101.64.0/22
 
 # IP地址查询
 DOMAIN-SUFFIX,1-b.net
