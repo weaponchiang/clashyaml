@@ -20,6 +20,8 @@ DOMAIN-SUFFIX,myipaddress.com
 DOMAIN-SUFFIX,whatismyipaddress.com
 DOMAIN-SUFFIX,whatsmyip.org
 DOMAIN-SUFFIX,ip.sb
+DOMAIN-SUFFIX,nperf.net
+DOMAIN-SUFFIX,nperf.com
 
 # DNS泄漏测试
 DOMAIN-SUFFIX,browserleaks.com
