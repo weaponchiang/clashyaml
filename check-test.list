@@ -1,5 +1,4 @@
 # IP-CIDR,142.251.215.0/24,no-resolve
-# 测速ip段
 
 # IP地址查询
 DOMAIN-SUFFIX,1-b.net
@@ -20,7 +19,6 @@ DOMAIN-SUFFIX,myip.ms
 DOMAIN-SUFFIX,myipaddress.com
 DOMAIN-SUFFIX,whatismyipaddress.com
 DOMAIN-SUFFIX,whatsmyip.org
-DOMAIN-SUFFIX,ip.sb
 
 # DNS泄漏测试
 DOMAIN-SUFFIX,browserleaks.com
