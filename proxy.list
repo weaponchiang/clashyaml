@@ -138,11 +138,8 @@ IP-CIDR,45.87.172.0/24,no-resolve
 # AI
 # DOMAIN,ai.opendoor.cn
 
-# 小牛
-# DOMAIN-SUFFIX,xiaoniuyun.cc
-
-DOMAIN-SUFFIX,fastlydns.net
-
+# 柯南杂货铺
+# DOMAIN-SUFFIX,7fk.su
 
 # 国外DNS
 DOMAIN-SUFFIX,dns.google
