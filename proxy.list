@@ -140,7 +140,7 @@ IP-CIDR,142.91.106.0/24,no-resolve
 # DOMAIN,ai.opendoor.cn
 
 # 柯南杂货铺
-# DOMAIN-SUFFIX,7fk.su
+DOMAIN-SUFFIX,7fk.su
 
 # 国外DNS
 DOMAIN-SUFFIX,dns.google
