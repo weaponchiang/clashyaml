@@ -141,6 +141,7 @@ IP-CIDR,142.91.106.0/24,no-resolve
 
 # 柯南杂货铺
 DOMAIN-SUFFIX,7fk.su
+DOMAIN-SUFFIX,wenziwanka.com
 
 # 国外DNS
 DOMAIN-SUFFIX,dns.google
