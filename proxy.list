@@ -144,6 +144,9 @@ IP-CIDR,142.91.106.0/24,no-resolve
 DOMAIN-SUFFIX,7fk.su
 DOMAIN-SUFFIX,wenziwanka.com
 
+#盘搜
+DOMAIN-SUFFIX,so.252035.xyz
+
 #immortalwrt镜像源
 DOMAIN-SUFFIX,mirrors.vsean.net
 DOMAIN-SUFFIX,nikkinikki.pages.dev
