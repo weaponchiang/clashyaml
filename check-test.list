@@ -1,5 +1,8 @@
 # IP-CIDR,142.251.215.0/24,no-resolve
 
+#我的域名
+DOMAIN-SUFFIX,tw.990903.xyz
+
 # IP地址查询
 DOMAIN-SUFFIX,1-b.net
 DOMAIN-SUFFIX,888005.xyz
