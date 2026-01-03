@@ -18,6 +18,20 @@ DOMAIN-SUFFIX,o00o.cc
 DOMAIN-SUFFIX,990903.xyz
 DOMAIN-SUFFIX,coldboy.cc
 
+# 三星
+DOMAIN-SUFFIX,samsung.cn
+DOMAIN-SUFFIX,samsung.com.cn
+DOMAIN-SUFFIX,samsungosp.com.cn
+DOMAIN-SUFFIX,samsungcloud.cn
+DOMAIN-SUFFIX,samsungapps.cn
+DOMAIN-SUFFIX,galaxyapps.cn
+DOMAIN-SUFFIX,samsungpay.com.cn
+DOMAIN-SUFFIX,samsungdm.com.cn
+DOMAIN-SUFFIX,samsungcloud.com
+DOMAIN-SUFFIX,samsung.com
+
+
+
 
 # wise
 DOMAIN-SUFFIX,transferwise.com
